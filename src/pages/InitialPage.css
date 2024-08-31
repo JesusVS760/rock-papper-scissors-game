@@ -1,0 +1,33 @@
+.score-board-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.initial-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.paper-option,
+.rock-option,
+.scissors-option {
+  background-color: white;
+  padding: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.paper-option {
+  border: 25px solid hsl(230, 89%, 65%);
+}
+.rock-option {
+  border: 25px solid hsl(349, 70%, 56%);
+}
+.scissors-option {
+  border: 25px solid hsl(40, 84%, 53%);
+}
+.paper-option img,
+.rock-option img,
+.scissors-option img {
+  width: 60px;
+}

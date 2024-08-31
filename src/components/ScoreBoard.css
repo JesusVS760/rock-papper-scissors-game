@@ -1,0 +1,27 @@
+.score-board-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid gray;
+  padding: 15px 25px;
+  border-radius: 20px;
+  gap: 350px;
+  margin-top: 25px;
+}
+.score-board-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 45px;
+  background: white;
+  color: black;
+  border-radius: 15px;
+}
+.score-board-score h2 {
+  color: hsl(229, 64%, 46%);
+}
+.score-board-score h1 {
+  font-weight: 700;
+  font-size: 3rem;
+}

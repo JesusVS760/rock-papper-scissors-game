@@ -22,7 +22,7 @@ const GameOption = ({ optionImage }) => {
           setImagePicked(paperImage);
       }
     };
-    gameOptionChose();
+    gameOptionChose(optionImage);
   }, [optionImage]);
 
   return (

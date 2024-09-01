@@ -3,7 +3,8 @@
   align-items: center;
   justify-content: center;
 }
-.initial-page-container {
+.initial-page-container,
+.initial-page-container-opacity {
   display: flex;
   align-items: center;
   justify-content: center;

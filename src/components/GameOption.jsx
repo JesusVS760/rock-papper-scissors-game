@@ -7,22 +7,22 @@ import scissorsImage from "../images/icon-scissors.svg";
 const GameOption = ({ optionImage }) => {
   const [ImagePicked, setImagePicked] = useState("NA");
   useEffect(() => {
-    const gameOptionChose = (optionImage) => {
+    const gameOptionChose = () => {
       switch (optionImage) {
-        case "paperImage":
+        case "paper":
           setImagePicked(paperImage);
           break;
-        case "rockImage":
+        case "rock":
           setImagePicked(rockImage);
           break;
-        case "scissorsImage":
+        case "scissors":
           setImagePicked(scissorsImage);
           break;
         default:
           setImagePicked(paperImage);
       }
     };
-    gameOptionChose(optionImage);
+    gameOptionChose();
   }, [optionImage]);
 
   return (

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./InitialChallengePage.css";
 import ScoreBoard from "../components/ScoreBoard";
 import { useParams } from "react-router-dom";
+import GameOption from "../components/GameOption";
 const IntialChallengePage = () => {
   const { gameChoice } = useParams();
 
@@ -21,7 +22,9 @@ const IntialChallengePage = () => {
         <ScoreBoard />
       </div>
       <div className="game-content">
-        <div className="you-picked"></div>
+        <div className="you-picked">
+          <GameOption optionImage={gameChoice} />
+        </div>
         <div className="house-picked"></div>
       </div>
     </div>

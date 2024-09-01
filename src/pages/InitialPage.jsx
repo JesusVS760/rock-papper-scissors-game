@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ScoreBoard from "../components/ScoreBoard";
 import "./initialPage.css";
-import paperImage from "../images/icon-paper.svg";
-import rockImage from "../images/icon-rock.svg";
-import scissorsImage from "../images/icon-scissors.svg";
 import Rules from "../components/Rules";
 import rulesImage from "../images/image-rules.svg";
 import closeIcon from "../images/icon-close.svg";
@@ -38,23 +35,17 @@ const initialPage = () => {
         <ScoreBoard />
       </div>
       <div className="player-options">
-        <div className="paper-option">
-          <GameOption
-            optionImage={"paperImage"}
-            onClick={() => handleNextPage("paper")}
-          />
+        <div className="paper-option" onClick={() => handleNextPage("paper")}>
+          <GameOption optionImage={"paper"} />
         </div>
-        <div className="scissors-option">
-          <GameOption
-            optionImage={"scissorsImage"}
-            onClick={() => handleNextPage("scissors")}
-          />
+        <div
+          className="scissors-option"
+          onClick={() => handleNextPage("scissors")}
+        >
+          <GameOption optionImage={"scissors"} />
         </div>
-        <div className="rock-option">
-          <GameOption
-            optionImage={"rockImage"}
-            onClick={() => handleNextPage("rock")}
-          />
+        <div className="rock-option" onClick={() => handleNextPage("rock")}>
+          <GameOption optionImage={"rock"} />
         </div>
       </div>
       <div className="rules-button">

@@ -1,4 +1,26 @@
-.you-picked {
+.you-picked,
+.house-picked {
   width: 225px;
+}
+.you-picked {
   border: 25px solid gray;
+}
+.you-picked h2 {
+  color: white;
+}
+.picked-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.picked-container h2,
+.house-container h2 {
+  margin-bottom: 50px;
+}
+.game-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 200px;
 }

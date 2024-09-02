@@ -1,0 +1,11 @@
+.house-picked-container {
+  padding: 75px;
+  background: white;
+  border-radius: 50%;
+}
+
+.house-picked {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

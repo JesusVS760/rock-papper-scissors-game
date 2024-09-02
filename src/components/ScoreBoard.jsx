@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import "./ScoreBoard.css";
+import logo from "../images/logo.svg";
 const ScoreBoard = () => {
   const [score, setScore] = useState(0);
 
   return (
     <div className="score-board-container">
       <div className="score-board-title">
-        <h1>Rock</h1>
-        <h1>Paper</h1>
-        <h1>Scissors</h1>
+        <img src={logo} alt="" />
       </div>
       <div className="score-board-score">
         <h2>score</h2>

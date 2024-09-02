@@ -38,7 +38,8 @@
 .paper-option,
 .rock-option,
 .scissors-option,
-.you-picked {
+.you-picked,
+.house-picked {
   background-color: white;
   padding: 50px;
   border-radius: 50%;
@@ -57,7 +58,8 @@
 .paper-option img,
 .rock-option img,
 .scissors-option img,
-.you-picked img {
+.you-picked img,
+.house-picked img {
   width: 60px;
 }
 .rules-button {

@@ -1,10 +1,9 @@
 .you-picked,
 .house-picked {
   width: 225px;
-}
-.you-picked {
   border: 25px solid gray;
 }
+
 .you-picked h2 {
   color: white;
 }

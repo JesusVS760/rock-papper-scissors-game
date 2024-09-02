@@ -5,8 +5,8 @@ import rockImage from "../images/icon-rock.svg";
 import scissorsImage from "../images/icon-scissors.svg";
 
 const HousePicked = ({ min, max }) => {
-  const [pickedPlayerImage, setPickedPlayerImage] = useState("");
-
+  const [pickedPlayerImage, setPickedPlayerImage] = useState("Loading");
+  const [isDone, setIsDone] = useState(false);
   const getRandomNum = () => {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
@@ -25,15 +25,22 @@ const HousePicked = ({ min, max }) => {
         case 3:
           return setPickedPlayerImage(scissorsImage);
         default:
-          return setPickedPlayerImage(paperImage);
+          return setPickedPlayerImage("Loading");
       }
     };
-    setTimeout(houseContent(), 1000);
+    setTimeout(() => {
+      houseContent();
+      setIsDone(true);
+    }, 2000);
   }, []);
 
   return (
     <div className="house-picked-container">
-      <img src={pickedPlayerImage} alt="" />
+      {isDone ? (
+        <img src={pickedPlayerImage} alt="Loading" />
+      ) : (
+        <h1 className="loading">Loading</h1>
+      )}
     </div>
   );
 };

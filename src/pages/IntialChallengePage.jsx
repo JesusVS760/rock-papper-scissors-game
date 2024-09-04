@@ -15,6 +15,7 @@ const IntialChallengePage = () => {
   };
 
   const handleHouseMatchColor = (houseColor) => {
+    console.log("received", houseColor);
     setFoundHouseBorder(houseColor);
   };
 
@@ -35,7 +36,7 @@ const IntialChallengePage = () => {
         </div>
         <div className="house-container">
           <h2>THE HOUSE PICKED</h2>
-          <div className={"house-picked"}>
+          <div className={foundHouseBorder}>
             <HousePicked min={1} max={3} matchColor={handleHouseMatchColor} />
           </div>
         </div>

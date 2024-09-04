@@ -6,7 +6,6 @@ import scissorsImage from "../images/icon-scissors.svg";
 
 const HousePicked = ({ min, max, matchColor }) => {
   const [pickedPlayerImage, setPickedPlayerImage] = useState("Loading");
-  const [handleColor, setHandleColor] = useState("");
   const [isDone, setIsDone] = useState(false);
 
   const getRandomNum = () => {
@@ -21,11 +20,26 @@ const HousePicked = ({ min, max, matchColor }) => {
 
       switch (pickedValue) {
         case 1:
-          return setPickedPlayerImage(paperImage);
+          setPickedPlayerImage(paperImage);
+          if (matchColor) {
+            matchColor("paper-option");
+            console.log("paper-option");
+          }
+          return;
         case 2:
-          return setPickedPlayerImage(rockImage);
+          setPickedPlayerImage(rockImage);
+          if (matchColor) {
+            matchColor("rock-option");
+            console.log("rock-option");
+          }
+          return;
         case 3:
-          return setPickedPlayerImage(scissorsImage);
+          setPickedPlayerImage(scissorsImage);
+          if (matchColor) {
+            matchColor("scissors-option");
+            console.log("scissors-option");
+          }
+          return;
         default:
           return setPickedPlayerImage("Loading");
       }

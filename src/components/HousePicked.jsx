@@ -4,9 +4,11 @@ import paperImage from "../images/icon-paper.svg";
 import rockImage from "../images/icon-rock.svg";
 import scissorsImage from "../images/icon-scissors.svg";
 
-const HousePicked = ({ min, max }) => {
+const HousePicked = ({ min, max, matchColor }) => {
   const [pickedPlayerImage, setPickedPlayerImage] = useState("Loading");
+  const [handleColor, setHandleColor] = useState("");
   const [isDone, setIsDone] = useState(false);
+
   const getRandomNum = () => {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./InitialChallengePage.css";
 import ScoreBoard from "../components/ScoreBoard";
 import { useParams } from "react-router-dom";
@@ -7,15 +7,16 @@ import HousePicked from "../components/HousePicked";
 const IntialChallengePage = () => {
   const { gameChoice } = useParams();
 
-  // useEffect(() => {
-  //   try {
-  //     if (gameChoice !== "") {
-  //       // console.log("Choice:", gameChoice);
-  //     }
-  //   } catch (error) {
-  //     console.log("Error: ", error);
-  //   }
-  // }, [gameChoice]);
+  const [foundPlayerBorder, setFoundPlayerBorder] = useState("");
+  const [foundHouseBorder, setFoundHouseBorder] = useState("");
+
+  const handleMatchColor = (playerColor) => {
+    setFoundPlayerBorder(playerColor);
+  };
+
+  const handleHouseMatchColor = (houseColor) => {
+    setFoundHouseBorder(houseColor);
+  };
 
   return (
     <div className="initial-challenge-container">
@@ -25,14 +26,17 @@ const IntialChallengePage = () => {
       <div className="game-content">
         <div className="picked-container">
           <h2>YOU PICKED</h2>
-          <div className="you-picked">
-            <GameOption optionImage={gameChoice} />
+          <div className={foundPlayerBorder}>
+            <GameOption
+              optionImage={gameChoice}
+              matchColor={handleMatchColor}
+            />
           </div>
         </div>
         <div className="house-container">
           <h2>THE HOUSE PICKED</h2>
-          <div className="house-picked">
-            <HousePicked min={1} max={3} />
+          <div className={"house-picked"}>
+            <HousePicked min={1} max={3} matchColor={handleHouseMatchColor} />
           </div>
         </div>
       </div>

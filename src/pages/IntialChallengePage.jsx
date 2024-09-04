@@ -4,6 +4,7 @@ import ScoreBoard from "../components/ScoreBoard";
 import { useParams } from "react-router-dom";
 import GameOption from "../components/GameOption";
 import HousePicked from "../components/HousePicked";
+import Result from "../components/Result";
 const IntialChallengePage = () => {
   const { gameChoice } = useParams();
 
@@ -34,6 +35,15 @@ const IntialChallengePage = () => {
             />
           </div>
         </div>
+        {foundHouseBorder && (
+          <div className="result-content">
+            <Result
+              playerResult={gameChoice}
+              houseResult={foundHouseBorder}
+            ></Result>
+          </div>
+        )}
+
         <div className="house-container">
           <h2>THE HOUSE PICKED</h2>
           <div className={foundHouseBorder}>

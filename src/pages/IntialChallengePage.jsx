@@ -38,7 +38,7 @@ const IntialChallengePage = () => {
         {foundHouseBorder && (
           <div className="result-content">
             <Result
-              playerResult={gameChoice}
+              results={gameChoice}
               houseResult={foundHouseBorder}
             ></Result>
           </div>

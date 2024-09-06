@@ -10,20 +10,32 @@ const IntialChallengePage = () => {
 
   const [foundPlayerBorder, setFoundPlayerBorder] = useState("");
   const [foundHouseBorder, setFoundHouseBorder] = useState("");
+  const [sendScore, setSendScore] = useState(0);
+  const [currentScore, setCurrentScore] = useState(0);
 
   const handleMatchColor = (playerColor) => {
     setFoundPlayerBorder(playerColor);
   };
 
   const handleHouseMatchColor = (houseColor) => {
-    console.log("received", houseColor);
     setFoundHouseBorder(houseColor);
+  };
+
+  const getUpdatedScore = (score) => {
+    setSendScore(score);
+  };
+  const getCurrentScore = (score) => {
+    setCurrentScore(score);
+    console.log("before sending", score);
   };
 
   return (
     <div className="initial-challenge-container">
       <div className="score-board">
-        <ScoreBoard />
+        <ScoreBoard
+          updatedScore={sendScore}
+          getCurrentScore={getCurrentScore}
+        />
       </div>
       <div className="game-content">
         <div className="picked-container">
@@ -40,6 +52,8 @@ const IntialChallengePage = () => {
             <Result
               results={gameChoice}
               houseResult={foundHouseBorder}
+              getScore={getUpdatedScore}
+              sendCurrent={currentScore}
             ></Result>
           </div>
         )}

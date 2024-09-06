@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Result = ({ results }) => {
+const Result = ({ results, getScore, sendCurrent }) => {
   const [isWin, setIsWin] = useState(false);
   console.log(results);
   useEffect(() => {
@@ -25,7 +25,19 @@ const Result = ({ results }) => {
       }
     };
     handleResult();
+    if (getScore) {
+      handleUpdatedScore(isWin);
+    }
   }, [results]);
+  //test
+  function handleUpdatedScore(update) {
+    // if (update == true) {
+    getScore(sendCurrent + 1);
+    console.log("value", sendCurrent);
+    // } else {
+    //   getScore(sendCurrent - 1);
+    // }
+  }
 
   return (
     <div className="result-container">

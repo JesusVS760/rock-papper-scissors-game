@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ScoreBoard.css";
 import logo from "../images/logo.svg";
-const ScoreBoard = () => {
+const ScoreBoard = ({ getCurrentScore }) => {
   const [score, setScore] = useState(0);
+
+  useEffect(() => {
+    // getCurrentScore(score);
+  }, []);
 
   return (
     <div className="score-board-container">

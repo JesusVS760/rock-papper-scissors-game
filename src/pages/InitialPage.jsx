@@ -13,7 +13,7 @@ const initialPage = () => {
   //callback function
   const handleRules = (show) => {
     setDisplayRules(show);
-    console.log(show);
+    // console.log(show);
   };
   // callback function
   const handleCloseRules = (close) => {

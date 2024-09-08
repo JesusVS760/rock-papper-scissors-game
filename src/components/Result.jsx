@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-const Result = ({ results, getScore, sendCurrent }) => {
+const Result = (result, { getScore, sentCurrent }) => {
+  const rs = result;
+  console.log("Received Result", rs);
   const [isWin, setIsWin] = useState(false);
-  console.log(results);
+  // console.log(getScore);
   useEffect(() => {
     let handleResult = () => {
-      if (
-        results.playerResult === "paper" &&
-        results.houseResult === "rock-option"
-      ) {
+      if (rs.result === "paper" && rs.houseResult === "rock-option") {
+        setIsWin(true);
+      } else if (rs.result === "rock" && rs.houseResult === "scissors-option") {
         setIsWin(true);
       } else if (
-        results.playerResult === "rock" &&
-        results.houseResult === "scissors-option"
-      ) {
-        setIsWin(true);
-      } else if (
-        results.playerResult === "scissors" &&
-        results.houseResult === "paper-option"
+        rs.result === "scissors" &&
+        rs.houseResult === "paper-option"
       ) {
         setIsWin(true);
       } else {
@@ -25,18 +21,18 @@ const Result = ({ results, getScore, sendCurrent }) => {
       }
     };
     handleResult();
-    if (getScore) {
-      handleUpdatedScore(isWin);
-    }
-  }, [results]);
-  //test
+    handleUpdatedScore(isWin);
+  }, [result]);
+
   function handleUpdatedScore(update) {
-    // if (update == true) {
-    getScore(sendCurrent + 1);
-    console.log("value", sendCurrent);
-    // } else {
-    //   getScore(sendCurrent - 1);
-    // }
+    console.log("before");
+
+    if (update) {
+      // getScore(sendCurrent + 1);
+      console.log("value", sentCurrent);
+    } else {
+      // getScore(sendCurrent - 1);
+    }
   }
 
   return (

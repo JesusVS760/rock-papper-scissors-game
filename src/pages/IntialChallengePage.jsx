@@ -7,7 +7,6 @@ import HousePicked from "../components/HousePicked";
 import Result from "../components/Result";
 const IntialChallengePage = () => {
   const { gameChoice } = useParams();
-
   const [foundPlayerBorder, setFoundPlayerBorder] = useState("");
   const [foundHouseBorder, setFoundHouseBorder] = useState("");
   const [sendScore, setSendScore] = useState(0);
@@ -25,8 +24,8 @@ const IntialChallengePage = () => {
     setSendScore(score);
   };
   const getCurrentScore = (score) => {
-    setCurrentScore(score);
     console.log("before sending", score);
+    setCurrentScore(score);
   };
 
   return (
@@ -50,10 +49,10 @@ const IntialChallengePage = () => {
         {foundHouseBorder && (
           <div className="result-content">
             <Result
-              results={gameChoice}
+              result={gameChoice}
               houseResult={foundHouseBorder}
               getScore={getUpdatedScore}
-              sendCurrent={currentScore}
+              sentCurrent={currentScore}
             ></Result>
           </div>
         )}

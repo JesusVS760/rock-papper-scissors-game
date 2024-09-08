@@ -5,8 +5,8 @@ const ScoreBoard = ({ getCurrentScore }) => {
   const [score, setScore] = useState(0);
 
   useEffect(() => {
-    // getCurrentScore(score);
-  }, []);
+    getCurrentScore(score);
+  }, [score]);
 
   return (
     <div className="score-board-container">

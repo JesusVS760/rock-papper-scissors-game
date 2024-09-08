@@ -21,17 +21,21 @@ const Result = (result, { getScore, sentCurrent }) => {
       }
     };
     handleResult();
-    handleUpdatedScore(isWin);
+    console.log("Before Entering", sentCurrent);
+    if (sentCurrent >= 0) {
+      console.log("Entered");
+      handleUpdatedScore(isWin);
+    }
   }, [result]);
 
   function handleUpdatedScore(update) {
     console.log("before");
 
     if (update) {
-      // getScore(sendCurrent + 1);
-      console.log("value", sentCurrent);
+      getScore(1);
+      console.log("value", 1);
     } else {
-      // getScore(sendCurrent - 1);
+      getScore(-1);
     }
   }
 

@@ -23,21 +23,21 @@ const HousePicked = ({ min, max, matchColor }) => {
           setPickedPlayerImage(paperImage);
           if (matchColor) {
             matchColor("paper-option");
-            console.log("paper-option");
+            // console.log("paper-option");
           }
           return;
         case 2:
           setPickedPlayerImage(rockImage);
           if (matchColor) {
             matchColor("rock-option");
-            console.log("rock-option");
+            // console.log("rock-option");
           }
           return;
         case 3:
           setPickedPlayerImage(scissorsImage);
           if (matchColor) {
             matchColor("scissors-option");
-            console.log("scissors-option");
+            // console.log("scissors-option");
           }
           return;
         default:

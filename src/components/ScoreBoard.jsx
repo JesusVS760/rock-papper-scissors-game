@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./ScoreBoard.css";
 import logo from "../images/logo.svg";
-const ScoreBoard = ({ getCurrentScore }) => {
+const ScoreBoard = ({ getCurrentScore, updatedScore }) => {
   const [score, setScore] = useState(0);
 
   useEffect(() => {
-    getCurrentScore(score);
+    if (updatedScore >= 0) {
+      getCurrentScore(updatedScore);
+      console.log(updatedScore);
+    }
   }, [score]);
 
   return (
@@ -15,7 +18,7 @@ const ScoreBoard = ({ getCurrentScore }) => {
       </div>
       <div className="score-board-score">
         <h2>score</h2>
-        <h1>{score}</h1>
+        <h1>{updatedScore}</h1>
       </div>
     </div>
   );

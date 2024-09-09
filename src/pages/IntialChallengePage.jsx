@@ -55,6 +55,7 @@ const IntialChallengePage = () => {
               houseResult={foundHouseBorder}
               getScore={getUpdatedScore}
               sentCurrent={currentScore}
+              newScore={sendScore}
             ></Result>
           </div>
         )}

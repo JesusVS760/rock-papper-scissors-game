@@ -7,7 +7,7 @@ import closeIcon from "../images/icon-close.svg";
 import { useNavigate } from "react-router-dom";
 import GameOption from "../components/GameOption";
 
-const initialPage = () => {
+const initialPage = ({ retreivedScore }) => {
   const [displayRules, setDisplayRules] = useState(false);
   const navigate = useNavigate();
   //callback function
@@ -22,6 +22,8 @@ const initialPage = () => {
   const handleNextPage = (choice) => {
     navigate(`/${choice}`);
   };
+
+  const handlePrevScore = (retreivedScore) => {};
 
   return (
     <div

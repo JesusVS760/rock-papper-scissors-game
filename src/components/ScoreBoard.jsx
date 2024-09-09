@@ -5,7 +5,7 @@ const ScoreBoard = ({ getCurrentScore, updatedScore }) => {
   const [score, setScore] = useState(0);
 
   useEffect(() => {
-    if (updatedScore >= 0) {
+    if (updatedScore) {
       getCurrentScore(updatedScore);
       setScore(updatedScore);
       console.log(updatedScore);

@@ -26,7 +26,7 @@ const Result = (result) => {
     handleResult();
     console.log("Before Entering", rs.sentCurrent);
     if (rs.sentCurrent >= 0) {
-      console.log("Entered");
+      // console.log("Entered");
       handleUpdatedScore(isWin);
     }
   }, [result]);
@@ -40,11 +40,10 @@ const Result = (result) => {
       rs.getScore(-1);
     }
   }
-
   return (
     <div className="result-container">
       <h1>{isWin ? "YOU WIN" : "YOU LOSE"}</h1>
-      <PlayAgain />
+      <PlayAgain retreivedScore={rs.newScore} />
     </div>
   );
 };

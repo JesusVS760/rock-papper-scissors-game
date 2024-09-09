@@ -1,10 +1,14 @@
 import React from "react";
 import "./PlayAgain.css";
+import { useNavigate } from "react-router-dom";
 
-const PlayAgain = () => {
+const PlayAgain = ({ retreivedScore }) => {
+  const navigate = useNavigate();
+  console.log("New Score:", retreivedScore);
+
   return (
     <div className="play-again-container">
-      <button>Play Again</button>
+      <button onClick={() => navigate("/", retreivedScore)}>Play Again</button>
     </div>
   );
 };

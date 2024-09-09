@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import GameOption from "../components/GameOption";
 import HousePicked from "../components/HousePicked";
 import Result from "../components/Result";
+
 const IntialChallengePage = () => {
   const { gameChoice } = useParams();
   const [foundPlayerBorder, setFoundPlayerBorder] = useState("");
@@ -21,6 +22,7 @@ const IntialChallengePage = () => {
   };
 
   const getUpdatedScore = (score) => {
+    console.log("Received Score:", score);
     setSendScore(score);
   };
   const getCurrentScore = (score) => {

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import "./Result.css";
+import PlayAgain from "./PlayAgain";
 
-const Result = (result, { getScore, sentCurrent }) => {
+const Result = (result) => {
   const rs = result;
-  console.log("Received Result", rs);
+  console.log("Received Prop Value: ", rs);
+
   const [isWin, setIsWin] = useState(false);
-  // console.log(getScore);
+
   useEffect(() => {
     let handleResult = () => {
       if (rs.result === "paper" && rs.houseResult === "rock-option") {
@@ -21,28 +24,27 @@ const Result = (result, { getScore, sentCurrent }) => {
       }
     };
     handleResult();
-    console.log("Before Entering", sentCurrent);
-    if (sentCurrent >= 0) {
+    console.log("Before Entering", rs.sentCurrent);
+    if (rs.sentCurrent >= 0) {
       console.log("Entered");
       handleUpdatedScore(isWin);
     }
   }, [result]);
 
   function handleUpdatedScore(update) {
-    console.log("before");
-
     if (update) {
-      getScore(1);
-      console.log("value", 1);
+      console.log("sent value", 1);
+      rs.getScore(1);
     } else {
-      getScore(-1);
+      console.log("sent value", -1);
+      rs.getScore(-1);
     }
   }
 
   return (
     <div className="result-container">
       <h1>{isWin ? "YOU WIN" : "YOU LOSE"}</h1>
-      <button>Play Again</button>
+      <PlayAgain />
     </div>
   );
 };

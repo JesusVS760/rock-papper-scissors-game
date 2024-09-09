@@ -7,9 +7,10 @@ const ScoreBoard = ({ getCurrentScore, updatedScore }) => {
   useEffect(() => {
     if (updatedScore >= 0) {
       getCurrentScore(updatedScore);
+      setScore(updatedScore);
       console.log(updatedScore);
     }
-  }, [score]);
+  }, [updatedScore]);
 
   return (
     <div className="score-board-container">
@@ -18,7 +19,7 @@ const ScoreBoard = ({ getCurrentScore, updatedScore }) => {
       </div>
       <div className="score-board-score">
         <h2>score</h2>
-        <h1>{updatedScore}</h1>
+        <h1>{score}</h1>
       </div>
     </div>
   );

@@ -8,7 +8,11 @@ const PlayAgain = ({ retreivedScore }) => {
 
   return (
     <div className="play-again-container">
-      <button onClick={() => navigate("/", retreivedScore)}>Play Again</button>
+      <button
+        onClick={() => navigate("/", { state: { score: retreivedScore } })}
+      >
+        Play Again
+      </button>
     </div>
   );
 };

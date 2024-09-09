@@ -6,10 +6,14 @@ import rulesImage from "../images/image-rules.svg";
 import closeIcon from "../images/icon-close.svg";
 import { useNavigate } from "react-router-dom";
 import GameOption from "../components/GameOption";
+import { useLocation } from "react-router-dom";
 
-const initialPage = ({ retrievedScore }) => {
+const initialPage = () => {
   const [displayRules, setDisplayRules] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const retrievedScore = location.state?.score;
+
   //callback function
   const handleRules = (show) => {
     setDisplayRules(show);
@@ -36,7 +40,7 @@ const initialPage = ({ retrievedScore }) => {
       }
     >
       <div className="score-board-heading">
-        <ScoreBoard />
+        <ScoreBoard prevScore={retrievedScore} />
       </div>
       <div className="player-options">
         <div className="paper-option" onClick={() => handleNextPage("paper")}>

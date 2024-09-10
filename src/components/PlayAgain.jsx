@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const PlayAgain = ({ retreivedScore }) => {
   const navigate = useNavigate();
-  console.log("New Score:", retreivedScore);
+  // console.log("New Score:", retreivedScore);
 
   return (
     <div className="play-again-container">

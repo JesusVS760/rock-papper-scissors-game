@@ -27,10 +27,6 @@ const initialPage = () => {
     navigate(`/${choice}`, { state: { score: retrievedScore } });
   };
 
-  const handlePrevScore = (retreivedScore) => {
-    console.log(retreivedScore);
-  };
-
   return (
     <div
       className={

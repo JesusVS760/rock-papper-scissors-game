@@ -53,9 +53,9 @@ const HousePicked = ({ min, max, matchColor }) => {
   return (
     <div className="house-picked-container">
       {isDone ? (
-        <img src={pickedPlayerImage} alt="Loading" />
+        <img src={pickedPlayerImage} alt="" />
       ) : (
-        <h1 className="loading">Loading...</h1>
+        <span className="loading"></span>
       )}
     </div>
   );

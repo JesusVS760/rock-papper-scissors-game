@@ -4,8 +4,7 @@ import PlayAgain from "./PlayAgain";
 
 const Result = (result) => {
   const rs = result;
-  console.log("Received Prop Value: ", rs);
-
+  // console.log("Received Prop Value: ", rs);
   const [isWin, setIsWin] = useState(false);
 
   useEffect(() => {
@@ -24,7 +23,7 @@ const Result = (result) => {
       }
     };
     handleResult();
-    console.log("Before Entering", rs.sentCurrent);
+    // console.log("Before Entering", rs.sentCurrent);
     if (rs.sentCurrent >= 0) {
       // console.log("Entered");
       handleUpdatedScore(isWin);
@@ -36,7 +35,7 @@ const Result = (result) => {
       console.log("sent value", 1);
       rs.getScore(1);
     } else {
-      console.log("sent value", -1);
+      // console.log("sent value", -1);
       rs.getScore(-1);
     }
   }

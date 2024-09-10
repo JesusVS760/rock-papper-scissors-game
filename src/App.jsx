@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import InitialPage from "./pages/InitialPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import IntialChallengePage from "./pages/IntialChallengePage";
+import InitialChallengePage from "./pages/InitialChallengePage";
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<InitialPage />} />
-          <Route path="/:gameChoice" element={<IntialChallengePage />} />
+          <Route path="/:gameChoice" element={<InitialChallengePage />} />
         </Routes>
       </BrowserRouter>
     </div>

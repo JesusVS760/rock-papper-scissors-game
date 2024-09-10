@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./InitialChallengePage.css";
 import ScoreBoard from "../components/ScoreBoard";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import GameOption from "../components/GameOption";
 import HousePicked from "../components/HousePicked";
 import Result from "../components/Result";
@@ -13,6 +13,16 @@ const IntialChallengePage = () => {
   const [sendScore, setSendScore] = useState(0);
   const [currentScore, setCurrentScore] = useState(0);
 
+  useEffect(() => {
+    console.log("Current score state: ", location.state?.score);
+    if (location.state?.score) {
+      const mappedScore = location.state?.score;
+      console.log("RESULT: ", mappedScore);
+    } else {
+      console.log("FAILED");
+    }
+  }, [location.state?.score]);
+
   const handleMatchColor = (playerColor) => {
     setFoundPlayerBorder(playerColor);
   };
@@ -22,11 +32,11 @@ const IntialChallengePage = () => {
   };
 
   const getUpdatedScore = (score) => {
-    console.log("Received Score:", score);
+    // console.log("Received Score:", score);
     setSendScore(score);
   };
   const getCurrentScore = (score) => {
-    console.log("before sending", score);
+    // console.log("before sending", score);
     setCurrentScore(score);
   };
 

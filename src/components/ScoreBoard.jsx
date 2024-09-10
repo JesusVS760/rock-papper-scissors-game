@@ -7,10 +7,10 @@ const ScoreBoard = ({ getCurrentScore, updatedScore, prevScore }) => {
     if (updatedScore) {
       getCurrentScore(updatedScore);
       setScore(updatedScore);
-      console.log(updatedScore);
+      // console.log(updatedScore);
     }
     if (prevScore) {
-      console.log(prevScore);
+      // console.log(prevScore);
       setScore(prevScore);
     }
   }, [updatedScore, prevScore]);

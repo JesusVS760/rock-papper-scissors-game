@@ -1,9 +1,12 @@
 .house-picked-container {
-  background: white;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .loading {
-  color: black;
+  padding: 105px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  background: hsl(237, 49%, 15%);
 }

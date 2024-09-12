@@ -13,6 +13,7 @@ const IntialChallengePage = () => {
   const [sendScore, setSendScore] = useState(0);
   const [currentScore, setCurrentScore] = useState(0);
 
+  const location = useLocation();
   useEffect(() => {
     console.log("Current score state: ", location.state?.score);
     if (location.state?.score) {

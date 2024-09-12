@@ -6,21 +6,23 @@ import GameOption from "../components/GameOption";
 import HousePicked from "../components/HousePicked";
 import Result from "../components/Result";
 
-const IntialChallengePage = () => {
+const InitialChallengePage = () => {
   const { gameChoice } = useParams();
   const [foundPlayerBorder, setFoundPlayerBorder] = useState("");
   const [foundHouseBorder, setFoundHouseBorder] = useState("");
-  const [sendScore, setSendScore] = useState(0);
-  const [currentScore, setCurrentScore] = useState(0);
+  const [sendScore, setSendScore] = useState(0); // This represents the total score
+  const [currentScore, setCurrentScore] = useState(0); // Used to track temporary score for this round
 
   const location = useLocation();
+
   useEffect(() => {
     console.log("Current score state: ", location.state?.score);
     if (location.state?.score) {
       const mappedScore = location.state?.score;
-      console.log("RESULT: ", mappedScore);
+      setSendScore(mappedScore); // Initialize the sendScore with the score from location state
+      console.log("Initial score: ", mappedScore);
     } else {
-      console.log("FAILED");
+      console.log("Score not found in location state");
     }
   }, [location.state?.score]);
 
@@ -31,28 +33,23 @@ const IntialChallengePage = () => {
   const handleHouseMatchColor = (houseColor) => {
     setFoundHouseBorder(houseColor);
   };
-  const getUpdatedScore = (score) => {
-    console.log("sendScore:", sendScore);
 
-    setSendScore((prevScore) => {
-      if (score === 1) {
-        return prevScore + 1;
-      } else {
-        return prevScore - 1;
-      }
-    });
+  // Update the score based on win/loss
+  const getUpdatedScore = (score) => {
+    setSendScore((prevScore) => prevScore + (score === 1 ? 1 : -1));
   };
-  const getCurrentScore = (score) => {
-    // console.log("before sending", score);
-    setCurrentScore(score);
-  };
+
+  // Log the updated score whenever it changes
+  useEffect(() => {
+    console.log("Updated sendScore:", sendScore);
+  }, [sendScore]);
 
   return (
     <div className="initial-challenge-container">
       <div className="score-board">
         <ScoreBoard
           updatedScore={sendScore}
-          getCurrentScore={getCurrentScore}
+          getCurrentScore={setCurrentScore}
         />
       </div>
       <div className="game-content">
@@ -73,7 +70,7 @@ const IntialChallengePage = () => {
               getScore={getUpdatedScore}
               sentCurrent={currentScore}
               newScore={sendScore}
-            ></Result>
+            />
           </div>
         )}
 
@@ -88,4 +85,4 @@ const IntialChallengePage = () => {
   );
 };
 
-export default IntialChallengePage;
+export default InitialChallengePage;

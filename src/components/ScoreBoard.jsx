@@ -1,27 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "./ScoreBoard.css";
 import logo from "../images/logo.svg";
+
 const ScoreBoard = ({ getCurrentScore, updatedScore, prevScore }) => {
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(prevScore || 0);
+
   useEffect(() => {
-    if (updatedScore) {
-      getCurrentScore(updatedScore);
+    // Check if updatedScore is passed and different from the current score
+    if (updatedScore !== undefined && updatedScore !== score) {
       setScore(updatedScore);
-      // console.log(updatedScore);
+      getCurrentScore(updatedScore);
     }
-    if (prevScore) {
-      // console.log(prevScore);
+  }, [updatedScore, score, getCurrentScore]);
+
+  useEffect(() => {
+    // Set the score to prevScore only if prevScore is defined
+    if (prevScore !== undefined) {
       setScore(prevScore);
     }
-  }, [updatedScore, prevScore]);
+  }, [prevScore]);
 
   return (
     <div className="score-board-container">
       <div className="score-board-title">
-        <img src={logo} alt="" />
+        <img src={logo} alt="Game Logo" />
       </div>
       <div className="score-board-score">
-        <h2>score</h2>
+        <h2>Score</h2>
         <h1>{score}</h1>
       </div>
     </div>

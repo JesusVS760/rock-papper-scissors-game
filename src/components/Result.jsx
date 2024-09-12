@@ -4,7 +4,7 @@ import PlayAgain from "./PlayAgain";
 
 const Result = (result) => {
   const rs = result;
-  // console.log("Received Prop Value: ", rs);
+  console.log("Received Prop Value: ", rs.newScore);
   const [isWin, setIsWin] = useState(false);
 
   useEffect(() => {
@@ -32,11 +32,9 @@ const Result = (result) => {
 
   function handleUpdatedScore(update) {
     if (update) {
-      console.log("sent value", 1);
       rs.getScore(1);
     } else {
-      // console.log("sent value", -1);
-      rs.getScore(-1);
+      rs.getScore(0);
     }
   }
   return (

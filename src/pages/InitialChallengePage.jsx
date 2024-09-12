@@ -30,10 +30,16 @@ const IntialChallengePage = () => {
   const handleHouseMatchColor = (houseColor) => {
     setFoundHouseBorder(houseColor);
   };
-
   const getUpdatedScore = (score) => {
-    // console.log("Received Score:", score);
-    setSendScore(score);
+    console.log("sendScore:", sendScore);
+
+    setSendScore((prevScore) => {
+      if (score === 1) {
+        return prevScore + 1;
+      } else {
+        return prevScore - 1;
+      }
+    });
   };
   const getCurrentScore = (score) => {
     // console.log("before sending", score);

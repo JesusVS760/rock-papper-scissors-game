@@ -28,11 +28,7 @@ const Result = ({ result, houseResult, getScore, sentCurrent, newScore }) => {
   }, [isWin, sentCurrent]);
 
   const handleUpdatedScore = (win) => {
-    if (win) {
-      getScore(1);
-    } else {
-      getScore(0);
-    }
+    getScore(win ? 1 : 0);
   };
 
   return (

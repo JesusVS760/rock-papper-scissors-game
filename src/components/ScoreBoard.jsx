@@ -7,9 +7,9 @@ const ScoreBoard = ({ getCurrentScore, updatedScore, prevScore }) => {
 
   useEffect(() => {
     // Check if updatedScore is passed and different from the current score
-    if (updatedScore !== undefined && updatedScore !== score) {
+    if (updatedScore !== undefined) {
       setScore(updatedScore);
-      getCurrentScore(updatedScore);
+      console.log(updatedScore);
     }
   }, [updatedScore, score, getCurrentScore]);
 

@@ -19,6 +19,7 @@ const InitialChallengePage = () => {
     console.log("Current score state: ", location.state?.score);
     if (location.state?.score) {
       const mappedScore = location.state?.score;
+      console.log(mappedScore);
       setSendScore(mappedScore); // Initialize the sendScore with the score from location state
       console.log("Initial score: ", mappedScore);
     } else {

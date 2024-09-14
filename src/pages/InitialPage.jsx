@@ -12,7 +12,6 @@ const initialPage = () => {
   const [displayRules, setDisplayRules] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
   const retrievedScore = location.state?.score;
 
   //callback function

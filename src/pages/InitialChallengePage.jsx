@@ -10,18 +10,17 @@ const InitialChallengePage = () => {
   const { gameChoice } = useParams();
   const [foundPlayerBorder, setFoundPlayerBorder] = useState("");
   const [foundHouseBorder, setFoundHouseBorder] = useState("");
-  const [sendScore, setSendScore] = useState(0); // This represents the total score
-  const [currentScore, setCurrentScore] = useState(0); // Used to track temporary score for this round
+  const [sendScore, setSendScore] = useState(0); // Total score
+  const [currentScore, setCurrentScore] = useState(0); // Temporary score for this round
 
   const location = useLocation();
 
   useEffect(() => {
-    console.log("Current score state: ", location.state?.score);
+    console.log("Current score state:", location.state?.score);
     if (location.state?.score) {
       const mappedScore = location.state?.score;
-      console.log(mappedScore);
-      setSendScore(mappedScore); // Initialize the sendScore with the score from location state
-      console.log("Initial score: ", mappedScore);
+      console.log("Initial score:", mappedScore);
+      setSendScore(mappedScore);
     } else {
       console.log("Score not found in location state");
     }
@@ -35,12 +34,11 @@ const InitialChallengePage = () => {
     setFoundHouseBorder(houseColor);
   };
 
-  // Update the score based on win/loss
   const getUpdatedScore = (score) => {
-    setSendScore((prevScore) => prevScore + (score === 1 ? 1 : -1));
+    console.log("Score to be added:", score);
+    setSendScore((prevScore) => prevScore + score);
   };
 
-  // Log the updated score whenever it changes
   useEffect(() => {
     console.log("Updated sendScore:", sendScore);
   }, [sendScore]);
@@ -74,7 +72,6 @@ const InitialChallengePage = () => {
             />
           </div>
         )}
-
         <div className="house-container">
           <h2>THE HOUSE PICKED</h2>
           <div className={foundHouseBorder}>
